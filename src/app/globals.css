@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-inter: "Inter", system-ui, sans-serif;
+    --font-jetbrains: "JetBrains Mono", monospace;
+    --font-space-grotesk: "Space Grotesk", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #050508;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #050508;
+    color: #f0f0f5;
+    font-family: var(--font-inter);
+    cursor: none;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom high-tech scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06060a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #e63946 0%, #b02a35 100%);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e63946;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(230, 57, 70, 0.35);
+    color: #ffffff;
+  }
+
+  /* Focus outlines */
+  *:focus-visible {
+    outline: 1px solid rgba(230, 57, 70, 0.8);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space-grotesk);
+    letter-spacing: -0.03em;
+  }
+
+  code, pre, .mono {
+    font-family: var(--font-jetbrains);
+  }
+}
+
+@layer utilities {
+  /* Ultra-Glass morphism */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(12, 12, 20, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-pill {
+    background: rgba(20, 20, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Futuristic HUD markers */
+  .hud-bracket {
+    position: relative;
+  }
+  .hud-bracket::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #e63946;
+    border-left: 2px solid #e63946;
+  }
+  .hud-bracket::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid #e63946;
+    border-right: 2px solid #e63946;
+  }
+
+  /* Metallic Gradient Text */
+  .text-gradient-silver {
+    background: linear-gradient(180deg, #ffffff 0%, #d4d4dc 45%, #888899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e63946 50%, #b02a35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #fff275 0%, #f4d03f 50%, #d4ac0d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, #72f5ab 0%, #2ecc71 50%, #27ae60 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow Effects */
+  .glow-red {
+    box-shadow: 0 0 35px rgba(230, 57, 70, 0.4), 0 0 80px rgba(230, 57, 70, 0.15);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 35px rgba(46, 204, 113, 0.4), 0 0 80px rgba(46, 204, 113, 0.15);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 35px rgba(244, 208, 63, 0.4), 0 0 80px rgba(244, 208, 63, 0.15);
+  }
+
+  /* Section Padding */
+  .section-pad {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  /* Subtle Cyber Pulse */
+  @keyframes cyber-radar {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  .animate-radar {
+    animation: cyber-radar 3s ease-in-out infinite;
+  }
+
+  /* Border Shine Shimmer */
+  @keyframes border-shine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-border-beam {
+    background: linear-gradient(90deg, #e63946, #f4d03f, #2ecc71, #e63946);
+    background-size: 300% 300%;
+    animation: border-shine 6s ease infinite;
+  }
+}
